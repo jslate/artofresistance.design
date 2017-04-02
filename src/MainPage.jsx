@@ -28,11 +28,13 @@ class MainPage extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {page: 'home'};
+    this.state = {page: 'home', selectedCategories: []};
     this.getNavClass = this.getNavClass.bind(this);
     this.renderPageContents = this.renderPageContents.bind(this);
     this.renderSharing = this.renderSharing.bind(this);
     this.navTo = this.navTo.bind(this);
+    this.updateCategory = this.updateCategory.bind(this);
+    this.getImagesForSelectedCategories = this.getImagesForSelectedCategories.bind(this);
   }
 
   getNavClass() {
@@ -51,11 +53,18 @@ class MainPage extends React.Component {
       </div>);
   }
 
+  getImagesForSelectedCategories() {
+    return _.filter(imageData, (image) => {
+      return _.intersection(image.categories, this.state.selectedCategories).length > 0
+    });
+  }
+
   renderRows() {
-    return imageData.map((i) => {
+    const images = this.state.selectedCategories.length > 0 ? this.getImagesForSelectedCategories() : imageData;
+    return images.map((i) => {
       return (
         <div key={i.title} className="col-md-3 col-sm-6" style={{marginBottom: '50px'}}>
-          <img src={`/svgs/${i.filename}`} alt={i.title} className="img-responsive img-thumbnail" />
+          <img src={`/svgs/${i.filename}`} alt={i.title} style={{maxHeight: '200px'}} className="img-responsive img-thumbnail" />
         </div>
       );
     });
@@ -65,6 +74,7 @@ class MainPage extends React.Component {
   renderHome() {
     return (
       <div>
+        {this.renderCheckboxes()}
         <div className="container-fluid">
           <div className="row">
             {this.renderRows()}
@@ -80,6 +90,25 @@ class MainPage extends React.Component {
     } else if (this.state.page == 'about') {
       return this.renderAbout();
     }
+  }
+
+  updateCategory(event) {
+    if (event.target.checked) {
+      this.setState({selectedCategories: _.uniq(_.union(this.state.selectedCategories, [event.target.name]))});
+    } else {
+      this.setState({selectedCategories: _.pull(this.state.selectedCategories, event.target.name)});
+    }
+  }
+
+  renderCheckboxes() {
+    const categories = _.uniq(_.flatten(imageData.map((i) => i.categories)));
+    const radios = categories.map((category) => {
+      return (
+        <label style={{marginRight: '15px'}}>
+          <input type="checkbox" key={category} name={category} style={{marginRight: '5px'}} onChange={this.updateCategory} />{category}
+        </label>);
+    });
+    return (<div className="well">{radios}</div>);
   }
 
   renderSharing() {
