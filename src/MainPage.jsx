@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import _ from 'lodash';
+import Masonry from 'react-masonry-component';
 import imageData from './ImageData.js'
 
 import {
@@ -28,7 +29,7 @@ class MainPage extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {page: 'home', selectedCategories: []};
+    this.state = {page: 'home', selectedCategories: [], imageOpacity: 0};
     this.getNavClass = this.getNavClass.bind(this);
     this.renderPageContents = this.renderPageContents.bind(this);
     this.renderSharing = this.renderSharing.bind(this);
@@ -47,7 +48,10 @@ class MainPage extends React.Component {
 
   renderAbout() {
     return (<div className="well">
-        <p>Open license artwork to power the #Resistance!</p>
+        <h1>Open license artwork to power the #Resistance!</h1>
+
+        <p>All the artwork on this site is under the <a href="https://opensource.org/licenses/MIT">MIT License</a> which means
+        you are free to do whatever you want with it. We hope you will use it to stand up for progressive values!</p>
 
         <p>Author: Jonathan Slate (<a href="https://twitter.com/jslate">@jslate</a>)</p>
       </div>);
@@ -61,15 +65,25 @@ class MainPage extends React.Component {
 
   renderRows() {
     const images = this.state.selectedCategories.length > 0 ? this.getImagesForSelectedCategories() : imageData;
-    return images.map((i) => {
+    const imageTags = images.map((i) => {
       return (
-        <div key={i.title} className="col-md-3 col-sm-6" style={{marginBottom: '50px'}}>
-          <img src={`/svgs/${i.filename}`} alt={i.title} style={{maxHeight: '200px'}} className="img-responsive img-thumbnail" />
-        </div>
+        <li className="gallery-image">
+          <img src={`/svgs/${i.filename}`} style={{opacity: this.state.imageOpacity}} alt={i.title} />
+        </li>
       );
     });
+
+    return (
+      <Masonry
+        className='gallery'
+        elementType='ul'
+        onImagesLoaded={() => this.setState({imageOpacity: 1})}
+        >
+        {imageTags}
+      </Masonry>
+    );
+
   }
-  //style={{maxWidth: '200px', maxHeight: '200px'}} />
 
   renderHome() {
     return (

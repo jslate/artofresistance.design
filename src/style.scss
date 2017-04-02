@@ -15,3 +15,17 @@ a {
   display: inline-block;
   margin-right: 10px;
 }
+
+.gallery {
+  list-style-type: none;
+  padding: 0;
+  .gallery-image {
+    img {
+      border: 1px solid grey;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 10px;
+      width: 350px;
+    }
+  }
+}
