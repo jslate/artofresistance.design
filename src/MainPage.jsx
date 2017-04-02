@@ -67,16 +67,16 @@ class MainPage extends React.Component {
     const images = this.state.selectedCategories.length > 0 ? this.getImagesForSelectedCategories() : imageData;
     const imageTags = images.map((i) => {
       return (
-        <li className="gallery-image">
+        <div className="gallery-image">
           <img src={`/svgs/${i.filename}`} style={{opacity: this.state.imageOpacity}} alt={i.title} />
-        </li>
+        </div>
       );
     });
 
     return (
       <Masonry
         className='gallery'
-        elementType='ul'
+        elementType='div'
         onImagesLoaded={() => this.setState({imageOpacity: 1})}
         >
         {imageTags}
@@ -89,11 +89,7 @@ class MainPage extends React.Component {
     return (
       <div>
         {this.renderCheckboxes()}
-        <div className="container-fluid">
-          <div className="row">
-            {this.renderRows()}
-          </div>
-        </div>
+        {this.renderRows()}
 
       </div>);
   }
