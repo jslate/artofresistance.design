@@ -115,10 +115,10 @@ class MainPage extends React.Component {
     return (
       <div className="sharing">
         <div style={{display: 'inline-block', verticalAlign: 'top', marginRight: '15px'}}><strong>Share on:</strong></div>
-        <FacebookShareButton url="http://artofresistance.org">
+        <FacebookShareButton url="http://artofresistance.design">
           <FacebookIcon round={true} size={40}/>
         </FacebookShareButton>
-        <TwitterShareButton url="http://artofresistance.org" title="Art of Resistance" hashtags={['ArtOfResistance']}>
+        <TwitterShareButton url="http://artofresistance.design" title="Art of Resistance" hashtags={['ArtOfResistance']}>
           <TwitterIcon round={true} size={40} />
         </TwitterShareButton>
       </div>
