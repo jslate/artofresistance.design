@@ -26,7 +26,7 @@ class Gallery extends React.Component {
       <Masonry
         className='gallery'
         elementType='div'
-        onImagesLoaded={() => this.setState({showImages: true})}
+        onLayoutComplete={_.debounce(() => this.setState({showImages: true}), 1000)}
       >
         {this.renderRows()}
       </Masonry>

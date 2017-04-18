@@ -61,12 +61,17 @@ class MainPage extends React.Component {
   }
 
   renderAbout() {
+    const licenseUrl = 'https://creativecommons.org/publicdomain/zero/1.0/';
     return (
       <div className="well">
-        <h1>Open license artwork to power the #Resistance!</h1>
+        <h1>Open license artwork to power the resistance!</h1>
 
-        <p>All the artwork on this site is under the <a href="https://opensource.org/licenses/MIT">MIT License</a> which means
-        you are free to do whatever you want with it. We hope you will use it to stand up for progressive values!</p>
+        <p>All the artwork on this site is under the <a href={licenseUrl}>Creative Commons
+        Zero 1.0 Public Domain License</a> which means you are free to do whatever you want
+        with it. We hope you will use it to stand up for progressive values!</p>
+
+        <p>Many of our images use artwork from <a href="https://openclipart.org/">openclipart</a> which
+        is a great site! All of their work uses the same open license.</p>
 
         <p>Author: Jonathan Slate (<a href="https://twitter.com/jslate">@jslate</a>)</p>
       </div>
