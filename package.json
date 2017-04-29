@@ -28,8 +28,10 @@
     "babel-preset-react": "^6.23.0",
     "css-loader": "^0.26.2",
     "node-sass": "^4.5.0",
+    "pn": "^1.0.0",
     "sass-loader": "^6.0.2",
     "style-loader": "^0.13.2",
+    "svg2png": "^4.1.1",
     "webpack": "^2.2.1"
   }
 }

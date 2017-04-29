@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import _ from 'lodash';
 import Masonry from 'react-masonry-component';
-import imageData from './ImageData.js'
+// import imageData from './ImageData.js'
 import Form from './Form.jsx'
 import Sharing from './Sharing.jsx'
 import Gallery from './Gallery.jsx'
@@ -89,35 +89,8 @@ class MainPage extends React.Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-inverse navbar-fixed-top">
-          <div className="container">
-            <div className="navbar-header">
-              <button type="button"
-                className="navbar-toggle collapsed"
-                data-toggle="collapse"
-                data-target="#navbar"
-                aria-expanded="false"
-                aria-controls="navbar"
-                onClick={() => this.setState({navOpen: !this.state.navOpen})}>
-                <span className="sr-only">Toggle navigation</span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-              </button>
-              <a className="navbar-brand" href="#" onClick={(event) => this.navTo(event, 'home')}>Art of Resistance</a>
-            </div>
-            <div id="navbar" className={this.getNavClass()}>
-              <ul className="nav navbar-nav">
-                <li className={this.state.page == 'home' ? 'active' : ''}><a href="#" onClick={(event) => this.navTo(event, 'home')}>Home</a></li>
-                <li className={this.state.page == 'about' ? 'active' : ''}><a href="#" onClick={(event) => this.navTo(event, 'about')}>About</a></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-        <div className="container">
-          {this.renderPageContents()}
-          <Sharing />
-        </div>
+        {this.renderPageContents()}
+        <Sharing />
       </div>);
   }
 }
