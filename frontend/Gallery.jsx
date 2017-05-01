@@ -14,7 +14,7 @@ class Gallery extends React.Component {
     const style = this.state.showImages ? {} : {opacity: 0}
     return this.props.images.map((i) => {
       return (
-        <div className="gallery-image" onClick={() => document.location = `/image-page/${i.key}`}>
+        <div className="gallery-image" onClick={() => document.location = `${i.key}.html`}>
           <img src={`/svgs/${i.filename}`} key={i.key} style={style} alt={i.title} />
         </div>
       );

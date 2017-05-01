@@ -31,12 +31,12 @@ html
               li class=(page == 'index' ? 'active' : '')
                 a href="/"  Home
               li class=(page == 'about' ? 'active' : '')
-                a href="/about" About
+                a href="/about.html" About
       .container
         == yield
         
   script
-    == "var imageData = #{IMAGES.to_json};"
+    == "var imageData = #{images.to_json};"
   script src="/bundle.js" 
 
   

@@ -2,12 +2,12 @@ h1 #{title}
 
 .row
   .col-sm-8
-    img src="/svgs/#{params[:key]}.svg" style="width: 300px; border: 1px solid lightgrey; margin-top: 30px"
+    img src="/svgs/#{key}.svg" style="width: 300px; border: 1px solid lightgrey; margin-top: 30px"
 
   .col-sm-4
   
     h3 SVG
-    a href="/svgs/#{params[:key]}.svg" download="#{params[:key]}.svg"
+    a href="/svgs/#{key}.svg" download="#{key}.svg"
       button type="button" class="btn btn-default" style="margin-top: 10px; width: 80%" svg image
 
     h3 PNG
@@ -15,8 +15,8 @@ h1 #{title}
     p.right-click To download right click on the links below.
 
     - %w(small medium large).each do |size|
-      - url = "/pngs/#{size}/#{params[:key]}.png"
+      - url = "/pngs/#{size}/#{key}.png"
       div
-        a href=url download="#{params[:key]}-#{size}.png"
+        a href=url download="#{key}-#{size}.png"
           button type="button" class="btn btn-default" style="margin-top: 10px; width: 80%"
             = size
