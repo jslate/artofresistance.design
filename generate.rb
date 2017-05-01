@@ -3,6 +3,15 @@ require 'ostruct'
 require 'json'
 require './app_data'
 
+`mkdir -p public/svgs`
+`mkdir -p public/pngs/small`
+`mkdir -p public/pngs/medium`
+`mkdir -p public/pngs/large`
+
+`node genimages.js`
+
+`cp svgs/*.svg public/svgs/`
+
 layout_contents = File.open("views/layout.slim", "rb").read
 layout = Slim::Template.new { layout_contents }
 
@@ -21,3 +30,7 @@ AppData::IMAGES.each do |image|
     output.write layout.render(OpenStruct.new(page: '', images: AppData::IMAGES)) { contents }
   end
 end
+
+`webpack`
+
+# aws s3 sync . s3://artofresistance.design --acl public-read

@@ -6,12 +6,12 @@ const outputSizes = {
   large: 1200
 }
 
-fs.readdir('public/svgs', (err, files) => {
+fs.readdir('./svgs', (err, files) => {
   files.forEach(file => {
     // console.log(file.constructor);
     if (file.match(/\.svg$/)) {
       console.log(file.replace('.svg', '.png'));
-      const input = fs.readFileSync(`public/svgs/${file}`);
+      const input = fs.readFileSync(`./svgs/${file}`);
       Object.keys(outputSizes).forEach((size) => {
         svg2png(input, { width: outputSizes[size] })
         .then(buffer => fs.writeFile(`public/pngs/${size}/${file.replace('.svg', '.png')}`, buffer))
