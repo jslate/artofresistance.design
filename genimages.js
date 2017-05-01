@@ -1,6 +1,10 @@
 const fs = require("pn/fs"); // https://www.npmjs.com/package/pn
 const svg2png = require("svg2png");
-const outputDir = 'pngs';
+const outputSizes = {
+  small: 300,
+  medium: 600,
+  large: 1200
+}
 
 fs.readdir('public/svgs', (err, files) => {
   files.forEach(file => {
@@ -8,9 +12,11 @@ fs.readdir('public/svgs', (err, files) => {
     if (file.match(/\.svg$/)) {
       console.log(file.replace('.svg', '.png'));
       const input = fs.readFileSync(`public/svgs/${file}`);
-      svg2png(input, { width: 600 })
-          .then(buffer => fs.writeFile(`${outputDir}/${file.replace('.svg', '.png')}`, buffer))
-          .catch(e => console.error(e));
+      Object.keys(outputSizes).forEach((size) => {
+        svg2png(input, { width: outputSizes[size] })
+        .then(buffer => fs.writeFile(`public/pngs/${size}/${file.replace('.svg', '.png')}`, buffer))
+        .catch(e => console.error(e));
+      });
     }
   });
 })

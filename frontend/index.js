@@ -6,3 +6,11 @@ document.getElementsByClassName('navbar-toggle')[0].onclick = () => {
   if (classList.contains('collapse')) { classList.remove('collapse'); }
   else { classList.add('collapse'); }
 };
+
+
+window.downloadSupported = typeof(document.createElement('a').download) != "undefined";
+
+if (downloadSupported) {
+  var e = document.getElementsByClassName('right-click')[0];
+  e.parentElement.removeChild(e)
+}
