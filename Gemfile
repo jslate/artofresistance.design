@@ -2,5 +2,4 @@
 source "https://rubygems.org"
 
 gem "slim"
-# gem 'rb-readline'
-# gem 'pry'
+gem 'thor'
