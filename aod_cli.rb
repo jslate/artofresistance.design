@@ -1,3 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
 require 'slim'
 require 'ostruct'
 require 'json'
