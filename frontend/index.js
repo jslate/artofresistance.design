@@ -1,4 +1,5 @@
 import MainPage from './MainPage.jsx'
+import Sharing from './Sharing.jsx'
 require('./style.scss');
 
 document.getElementsByClassName('navbar-toggle')[0].onclick = () => {
@@ -12,5 +13,5 @@ window.downloadSupported = typeof(document.createElement('a').download) != "unde
 
 if (downloadSupported) {
   var e = document.getElementsByClassName('right-click')[0];
-  e.parentElement.removeChild(e)
+  if (e) { e.parentElement.removeChild(e); }
 }

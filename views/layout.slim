@@ -4,15 +4,15 @@ html
     meta charset="utf-8" /
     meta content="IE=edge" http-equiv="X-UA-Compatible" /
     meta content="width=device-width, initial-scale=1" name="viewport" /
-    meta content="http://artofresistance.design" property="og:url" /
-    meta content=("Art of Resistance") property="og:title" /
-    meta content=("High quality vector graphics with free and open license agreements that you can use for resistance activities.") property="og:description" /
-    meta content="http://artofresistance.design/pencil_shorter_in_fist-300px.png" property="og:image" /
+    meta content="http://artofresistance.design#{server_html_path}" property="og:url" /
+    meta content=("#{title}") property="og:title" /
+    meta content=("#{description}") property="og:description" /
+    meta content="http://artofresistance.design#{png_server_path}" property="og:image" /
     meta content="summary" name="twitter:card" /
     meta content="@jslate" name="twitter:creator" /
     title Art of Resistance
     link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" rel="stylesheet" /
-    link href="http://artofresistance.design/pencil_shorter_in_fist-300px.png" rel="icon" type="image/png" /
+    link href="http://artofresistance.design#{png_server_path}" rel="icon" type="image/png" /
 
     / script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"
   body
@@ -34,9 +34,8 @@ html
                 a href="/about.html" About
       .container
         == yield
-        
-  script
-    == "var imageData = #{images.to_json};"
+        #sharing data-url="http://artofresistance.design#{server_html_path}" data-title=title
+  
   script src="/bundle.js" 
 
   

@@ -26,10 +26,10 @@ class Sharing extends React.Component {
     return (
       <div className="sharing">
         <div style={{display: 'inline-block', verticalAlign: 'top', marginRight: '15px'}}><strong>Share on:</strong></div>
-        <FacebookShareButton url="http://artofresistance.design">
+        <FacebookShareButton url={this.props.url}>
           <FacebookIcon round={true} size={40}/>
         </FacebookShareButton>
-        <TwitterShareButton url="http://artofresistance.design" title="Art of Resistance" hashtags={['ArtOfResistance']}>
+        <TwitterShareButton url={this.props.url} title={this.props.title} hashtags={['ArtOfResistance']}>
           <TwitterIcon round={true} size={40} />
         </TwitterShareButton>
       </div>
@@ -37,4 +37,10 @@ class Sharing extends React.Component {
   }
 }
 
-export default Sharing;
+const componentElement = document.getElementById('sharing');
+if (componentElement) {
+  ReactDOM.render(
+    <Sharing url={componentElement.dataset['url']} title={componentElement.dataset['title']} />,
+    componentElement
+  );
+}

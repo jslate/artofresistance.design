@@ -5,7 +5,6 @@ import _ from 'lodash';
 import Masonry from 'react-masonry-component';
 // import imageData from './ImageData.js'
 import Form from './Form.jsx'
-import Sharing from './Sharing.jsx'
 import Gallery from './Gallery.jsx'
 
 class MainPage extends React.Component {
@@ -90,7 +89,6 @@ class MainPage extends React.Component {
     return (
       <div>
         {this.renderPageContents()}
-        <Sharing />
       </div>);
   }
 }
