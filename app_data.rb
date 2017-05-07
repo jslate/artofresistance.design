@@ -1,6 +1,21 @@
 module AppData
   IMAGES = [
     {
+      key: "trump-the-hydra",
+      title: 'Trump the Hydra',
+      categories: ['45']
+    },
+    {
+      key: "trumpcare",
+      title: 'Trumpcare',
+      categories: ['healthcare', '45']
+    },
+    {
+      key: "failure",
+      title: 'Failure',
+      categories: ["45"]
+     },
+     {
       key: "books",
       title: 'Defend Public Education',
       categories: ["education"]
@@ -74,16 +89,6 @@ module AppData
       key: "womens-rights-woman",
       title: 'Women\'s Rights - Individual',
       categories: ["women's rights"]
-    },
-    {
-      key: "trump-the-hydra",
-      title: 'Trump the Hydra',
-      categories: ["45"]
-    },
-    {
-      key: "failure",
-      title: 'Failure',
-      categories: ["45"]
-     }
+    }
   ]
 end
