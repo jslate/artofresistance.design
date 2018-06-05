@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import _ from 'lodash';
 import Masonry from 'react-masonry-component';
-// import imageData from './ImageData.js'
 import Form from './Form.jsx'
 import Gallery from './Gallery.jsx'
 
@@ -12,15 +11,8 @@ class MainPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = { page: 'home', selectedCategories: [] };
-    this.getNavClass = this.getNavClass.bind(this);
-    this.renderPageContents = this.renderPageContents.bind(this);
-    this.navTo = this.navTo.bind(this);
     this.onUpdateCategory = this.onUpdateCategory.bind(this);
     this.getImagesForSelectedCategories = this.getImagesForSelectedCategories.bind(this);
-  }
-
-  getNavClass() {
-    return this.state.navOpen ? 'navbar-collapse' : 'navbar-collapse collapse';
   }
 
   getImagesForSelectedCategories() {
@@ -40,11 +32,6 @@ class MainPage extends React.Component {
 
   getCategories() {
     return _.uniq(_.flatten(imageData.map((i) => i.categories)));
-  }
-
-  navTo(event, location) {
-    event.preventDefault();
-    this.setState({navOpen: false, page: location});
   }
 
   render() {
