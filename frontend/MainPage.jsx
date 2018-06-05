@@ -47,7 +47,7 @@ class MainPage extends React.Component {
     this.setState({navOpen: false, page: location});
   }
 
-  renderHome() {
+  render() {
     return (
       <div>
         <Form
@@ -56,39 +56,6 @@ class MainPage extends React.Component {
           onUpdateCategory={this.onUpdateCategory}
         />
         <Gallery images={this.getImagesForSelectedCategories()} />
-      </div>);
-  }
-
-  renderAbout() {
-    const licenseUrl = 'https://creativecommons.org/publicdomain/zero/1.0/';
-    return (
-      <div className="well">
-        <h1>Open license artwork!</h1>
-
-        <p>All the artwork on this site is under the <a href={licenseUrl}>Creative Commons
-        Zero 1.0 Public Domain License</a> which means you are free to do whatever you want
-        with it. We hope you will use it to stand up for progressive values!</p>
-
-        <p>Many of our images use artwork from <a href="https://openclipart.org/">openclipart</a> which
-        is a great site! All of their work uses the same open license.</p>
-
-        <p>Author: Jonathan Slate (<a href="https://twitter.com/jslate">@jslate</a>)</p>
-      </div>
-    );
-  }
-
-  renderPageContents() {
-    if (this.state.page == 'home') {
-      return this.renderHome();
-    } else if (this.state.page == 'about') {
-      return this.renderAbout();
-    }
-  }
-
-  render() {
-    return (
-      <div>
-        {this.renderPageContents()}
       </div>);
   }
 }

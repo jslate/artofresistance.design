@@ -30,7 +30,7 @@ class AodCli < Thor
 
   desc 'generate_index', 'Generate the index page'
   def generate_index
-    render_static_page('index', '/')
+    render_static_page('index', '/', images: AppData::IMAGES)
   end
 
   desc 'generate_about', 'Generate the about page'
@@ -81,9 +81,9 @@ class AodCli < Thor
 
   private
 
-    def render_static_page(name, server_path)
+    def render_static_page(name, server_path, data = {})
       slim = File.open("views/#{name}.slim", "rb").read
-      contents = Slim::Template.new { slim }.render(OpenStruct.new(images: AppData::IMAGES))
+      contents = Slim::Template.new { slim }.render(OpenStruct.new(data))
       File.open("public/#{name}.html", 'w') do |output|
         output.write layout.render(OpenStruct.new(
           png_server_path: '/pencil_shorter_in_fist-300px.png',
