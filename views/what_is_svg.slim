@@ -1,0 +1,56 @@
+h1 What is an SVG?
+
+p What is an SVG image, and why should you care? Well, simply put, SVGs, or Stadard Vector Graphics, are images that are much better for scaling, taking apart, changing colors, and combining with parts of other SVGs.
+
+p Most images you see on the Web are bitmap images, with formats like PNG or JPG. These are great formats, and they have their uses. A bitmap is basically just a map of what color goes where. This photo of Lincoln is a bitmap:
+
+img src="/abe.png"
+
+p It looks like him, right? But what happens if I made it bigger?
+
+img src="/abe.png" width="200" style="image-rendering: pixelated;"
+
+p Not so good right? And you can start to see the image for what it really is, just a grid of colors. If you try to take a small image and make it bigger, all you can really do is make each section of the grid bigger. Sometimes your browser will try to smooth out the different colors to make it less noticible, but then it will just be blurry.
+
+p And what if you just want to work with Abe's hair, to turn it pink or to take it out of this image and put it on an image of a pineapple? Well, you can, but it is a pain. You have to select all the parts of the grid that are his hair, which isn't so easy because, let's face it, Abe's hair was kind of messy.
+
+h2 So what is a SVG, really!?
+
+p And SVG image is a collection of shapes and lines. Here is a simple SVG with just a red circle in the middle:
+
+img src="/svgs/red-circle-simple.svg" width="200"
+
+p You can can actually look at the code for that imgage. By that, we just mean description of the image that your computer uses to draw the image. It isn't as scary as you might think:
+
+blockquote style="font-family: monospace"
+  | &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+  | &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;
+  |  width=&quot;400&quot; height=&quot;400&quot;
+  |  viewBox=&quot;0 0 400 400&quot;&gt;
+  | &lt;g transform=&quot;translate(0,-650)&quot;&gt;
+  |  &lt;circle style=&quot;fill:red;&quot; cx=&quot;200&quot; cy=&quot;800&quot; r=&quot;100&quot; /&gt;
+  | &lt;/g&gt;
+  | &lt;/svg&gt;
+
+p See in there where it says "cicle?" And there's a color, and the location where the center of the circle should be (cx, cy), and the radius (r). If you want to move the circle around, or make it bigger or smaller, you just change those numbers. Or if you want to make it blue, you can just change the word "red" to "blue." That said, as your images get more complicated, you won't want to edit your SVG images by hand, but the underling code of your SVG images will be just like this.
+
+p And the great thing is, when you scale the image to make it bigger, it looks just as good as it ever did. And if you have an SVG image with a bunch of different objects, you can edit it to keep only the objects you want, or copy those objects into a new image. It is incredibly flexible.
+
+p One thing SVGs aren't great for is for creating photo-realistic images. Creating something that looks like a photo of Lincoln with lines and shapes is hard and probably not practical. Still you can do some pretty impressive stuff with SVG images, like the image below. By the way, I didn't create this, it's way past my skill level, I got it from <a href="https://openclipart.org">openclipart</a>, an awesome site with tons of free SVG images.
+
+.row
+  .col-md-3
+    img src="/svgs/lincoln-red.svg" width="200"
+  .col-md-3
+    img src="/svgs/lincoln-blue.svg" width="200"
+  .col-md-3
+    img src="/svgs/lincoln-pink.svg" width="200"
+  .col-md-3
+    img src="/svgs/lincoln-green.svg" width="200"
+
+
+p That said, an image like that is pretty complicated, so grabbing all the right lines and shapes to change to pink isn't all that easy. Ah well, you get the idea anyway.
+
+p When you download images from this site, you have the choice of downloading an SVG, or choosing from multiple sizes of PNG images. This is for convenience as not everyone knows how to work with SVG images. But if you are interested in giving it a try, you can use professional tools like Illustrator, or the free and pretty amazing tool I use, <a href="https://inkscape.org">Inkscape</a>.
+
+p Then you can take the parts of my images you like, change things around, modify the text, combine different images, find other SVGs and combine them with mine, etc. And I really hope you will!

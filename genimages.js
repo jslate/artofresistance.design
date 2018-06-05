@@ -7,15 +7,19 @@ const outputSizes = {
 }
 
 fs.readdir('./svgs', (err, files) => {
-  files.forEach(file => {
-    // console.log(file.constructor);
+  files.forEach((file, index) => {
     if (file.match(/\.svg$/)) {
-      console.log(file.replace('.svg', '.png'));
-      const input = fs.readFileSync(`./svgs/${file}`);
+      const svg = `${__dirname}/svgs/${file}`;
+      const input = fs.readFileSync(svg, { encoding: 'utf8' });
       Object.keys(outputSizes).forEach((size) => {
+        const filename = `${__dirname}/public/pngs/${size}/${file.replace('.svg', '.png')}`;
         svg2png(input, { width: outputSizes[size] })
-        .then(buffer => fs.writeFile(`public/pngs/${size}/${file.replace('.svg', '.png')}`, buffer))
-        .catch(e => console.error(e));
+        .then((buffer) => {
+          console.log(`write ${filename}`);
+          fs.writeFile(filename, buffer);
+        }).catch(e => {
+          console.error(e);
+        });
       });
     }
   });

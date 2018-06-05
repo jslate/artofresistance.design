@@ -32,6 +32,8 @@ html
                 a href="/"  Home
               li class=(page == 'about' ? 'active' : '')
                 a href="/about.html" About
+              li class=(page == 'what_is_svg' ? 'active' : '')
+                a href="/what_is_svg.html" What is SVG?
       .container
         == yield
         #sharing data-url="http://artofresistance.design#{server_html_path}" data-title=title

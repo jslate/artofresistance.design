@@ -5,8 +5,8 @@ require 'slim'
 require 'ostruct'
 require 'json'
 require 'thor'
-require './app_data'
-require './image'
+require './lib/app_data'
+require './lib/image'
 
 class AodCli < Thor
 
@@ -18,9 +18,14 @@ class AodCli < Thor
     `mkdir -p public/pngs/large`
   end
 
+  desc 'copy_svgs', 'Copy the SVG images to public/'
+  def copy_svgs
+    `cp svgs/*.svg public/svgs/`
+  end
+
   desc 'generate_images', 'Generate small, medium, and large PNG images for each SVG'
   def generate_images
-    `node genimages.js`
+    puts `node genimages.js`
   end
 
   desc 'generate_index', 'Generate the index page'
@@ -31,6 +36,11 @@ class AodCli < Thor
   desc 'generate_about', 'Generate the about page'
   def generate_about
     render_static_page('about', '/about.html')
+  end
+
+  desc 'generate_what_is_svg', 'Generate the what is SVG page'
+  def generate_what_is_svg
+    render_static_page('what_is_svg', '/what_is_svg.html')
   end
 
   desc 'generate_image_pages', 'Generate an HTML page for each SVG image'
@@ -55,8 +65,10 @@ class AodCli < Thor
     generate_images
     generate_index
     generate_about
+    generate_what_is_svg
     generate_image_pages
     webpack
+    copy_svgs
     copy_misc_stuff_to_public
   end
 
@@ -82,8 +94,8 @@ class AodCli < Thor
     end
 
     def copy_misc_stuff_to_public
-      `cp svgs/*.svg public/svgs/`
-      `cp pencil_shorter_in_fist-300px.png public/`
+      `cp assets/pencil_shorter_in_fist-300px.png public/`
+      `cp assets/abe.png public/`
     end
 
     def layout
