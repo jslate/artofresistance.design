@@ -29,7 +29,7 @@ class Sharing extends React.Component {
         <FacebookShareButton url={this.props.url}>
           <FacebookIcon round={true} size={40}/>
         </FacebookShareButton>
-        <TwitterShareButton url={this.props.url} title={this.props.title} hashtags={['ArtOfResistance']}>
+        <TwitterShareButton url={this.props.url} title={this.props.title} hashtags={['Art']}>
           <TwitterIcon round={true} size={40} />
         </TwitterShareButton>
       </div>

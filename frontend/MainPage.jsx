@@ -63,7 +63,7 @@ class MainPage extends React.Component {
     const licenseUrl = 'https://creativecommons.org/publicdomain/zero/1.0/';
     return (
       <div className="well">
-        <h1>Open license artwork to power the resistance!</h1>
+        <h1>Open license artwork!</h1>
 
         <p>All the artwork on this site is under the <a href={licenseUrl}>Creative Commons
         Zero 1.0 Public Domain License</a> which means you are free to do whatever you want

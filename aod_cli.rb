@@ -87,7 +87,7 @@ class AodCli < Thor
       File.open("public/#{name}.html", 'w') do |output|
         output.write layout.render(OpenStruct.new(
           png_server_path: '/pencil_shorter_in_fist-300px.png',
-          description: "High quality vector graphics with free and open license agreements that you can use for resistance activities.",
+          description: "High quality vector graphics with free and open license agreements that you can use for activities.",
           server_html_path: server_path,
           page: name)) { contents }
       end

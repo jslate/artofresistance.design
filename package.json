@@ -1,7 +1,7 @@
 {
   "name": "artofresistance.design",
   "version": "1.0.0",
-  "description": "Open license artwork to power the #Resistance.",
+  "description": "Open license artwork.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

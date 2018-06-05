@@ -1,5 +1,4 @@
-# artofresistance.design
-Open license artwork to power the #Resistance.
+# art.design
+Open license artwork.
 
 Work in progress
-http://artofresistance.design/

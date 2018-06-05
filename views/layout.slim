@@ -10,7 +10,7 @@ html
     meta content="http://artofresistance.design#{png_server_path}" property="og:image" /
     meta content="summary" name="twitter:card" /
     meta content="@jslate" name="twitter:creator" /
-    title Art of Resistance
+    title Open License Art
     link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" rel="stylesheet" /
     link href="http://artofresistance.design#{png_server_path}" rel="icon" type="image/png" /
 
@@ -20,12 +20,12 @@ html
       nav.navbar.navbar-inverse.navbar-fixed-top
         .container
           .navbar-header
-            button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button" 
+            button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button"
               span.sr-only Toggle navigation
               span.icon-bar
               span.icon-bar
               span.icon-bar
-            a.navbar-brand href="/" Art of Resistance
+            a.navbar-brand href="/" Open License Art
           #navbar.navbar-collapse.collapse
             ul.nav.navbar-nav
               li class=(page == 'index' ? 'active' : '')
@@ -37,9 +37,5 @@ html
       .container
         == yield
         #sharing data-url="http://artofresistance.design#{server_html_path}" data-title=title
-  
-  script src="/bundle.js" 
 
-  
-
-  
+  script src="/bundle.js"
