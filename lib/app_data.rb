@@ -6,11 +6,6 @@ module AppData
       categories: ["education"]
     },
     {
-      key: "miracle-elixir",
-      title: 'Miracle Elixir',
-      categories: ["science"]
-    },
-    {
       key: "pc-sa",
       title: 'Politically Correctness',
       categories: ["science"]
